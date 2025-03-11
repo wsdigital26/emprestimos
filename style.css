@@ -6,22 +6,27 @@
 }
 
 body {
-  background-color: #f8f9fa; /* Cor de fundo mais suave */
+  background-color: #e9f1fa; /* Fundo suave azul claro */
   color: #333;
   padding: 20px;
 }
 
 header {
-  background-color: #0056b3; /* Azul escuro mais sério */
+  background: linear-gradient(135deg, #4c9dd5, #2b88c7); /* Gradiente suave de azul */
   color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+header:hover {
+  transform: scale(1.05);
 }
 
 header h1 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -34,48 +39,55 @@ header p {
 .whatsapp-btn {
   display: inline-block;
   margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #25d366; /* Cor do WhatsApp */
+  padding: 15px 30px;
+  background-color: #25d366;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 50px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128c7e;
+  transform: scale(1.05);
 }
 
 .produtos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   margin-top: 30px;
 }
 
 .produto {
-  width: 100%;  /* Faz a div ocupar toda a largura disponível */
-  box-sizing: border-box;  /* Inclui o padding e border no cálculo da largura */
-  padding: 20px;
-  background-color: #ffffff;  /* Cor de fundo opcional */
-  margin-bottom: 20px;  /* Distância entre as caixinhas */
-  border-radius: 8px;  /* Bordas arredondadas */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra opcional */
-  text-align: center;  /* Centraliza o texto dentro da div */
+  width: 280px;  /* Ajustando o tamanho */
+  box-sizing: border-box;
+  padding: 25px;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .produto:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .produto h2 {
-  font-size: 1.8em;  /* Tamanho maior do título */
+  font-size: 1.9em;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
+  color: #2b88c7; /* Azul mais escuro para o texto */
+  margin-bottom: 20px;
 }
 
 .produto p {
@@ -86,71 +98,72 @@ header p {
 
 .produto a {
   display: inline-block;
-  margin-top: 15px;
-  padding: 12px 25px;
-  background-color: #0056b3;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #4c9dd5;  /* Azul suave */
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 16px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .produto a:hover {
-  background-color: #003d80; /* Tom mais escuro de azul */
+  background-color: #2b88c7; /* Azul mais forte ao passar o mouse */
+  transform: scale(1.05);
 }
 
 footer {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #333;
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #2b88c7;
   color: white;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 15px;
   font-size: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 footer p {
   margin-top: 10px;
 }
 
-/* Estilo geral do formulário */
+/* Estilo do formulário */
 #formulario-emprestimo {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo do título */
 #formulario-emprestimo h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 28px;
 }
 
-/* Estilo para os rótulos (labels) */
 label {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 8px;
   color: #555;
 }
 
-/* Estilo para os campos de entrada (inputs e selects) */
 input[type="text"], input[type="number"], select {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 12px;
+  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 8px;
+  font-size: 16px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
 input[readonly] {
@@ -158,29 +171,84 @@ input[readonly] {
   cursor: not-allowed;
 }
 
-/* Estilo para o botão */
+input:focus, select:focus {
+  border-color: #4c9dd5; /* Azul de destaque ao focar */
+  outline: none;
+}
+
 button {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  background-color: #4CAF50;
+  padding: 14px;
+  font-size: 18px;
+  background-color: #4c9dd5;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #2b88c7;
+  transform: scale(1.05);
 }
 
-/* Estilo para os campos obrigatórios */
 input[required], select[required] {
-  background-color: #fff6e5;
+  background-color: #e5f4ff; /* Fundo leve em azul claro */
 }
 
-/* Estilo de foco nos campos */
-input:focus, select:focus {
-  border-color: #4CAF50;
-  outline: none;
+.produto-cartao {
+  background-color: #0077b6;  /* Azul forte */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.produto-cartao h2 {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold; 
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produtos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produto {
+    width: 90%;  /* Ajustando o tamanho para telas menores */
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    font-size: 32px;  /* Menor tamanho de fonte em telas pequenas */
+  }
+
+  header p {
+    font-size: 16px;  /* Ajuste de tamanho de texto */
+  }
+
+  .whatsapp-btn {
+    font-size: 16px;  /* Ajuste de tamanho de botão */
+  }
+}
+
+@media (max-width: 480px) {
+  .produto h2 {
+    font-size: 1.5em;  /* Reduzindo o tamanho do título */
+  }
+
+  .produto p {
+    font-size: 14px;  /* Ajustando o tamanho do texto */
+  }
+
+  button {
+    font-size: 16px;  /* Ajuste no tamanho do botão */
+  }
+
+  footer p {
+    font-size: 12px;  /* Texto do rodapé menor */
+  }
 }
