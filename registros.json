@@ -1,0 +1,15 @@
+{
+  "usuarios": [
+    {
+      "nome": "fulano",
+      "contratos": [
+        {
+          "cliente": "maria",
+          "tipo": "Empréstimo no Cartão",
+          "data_clique": "2025-02-24T12:34:56",
+          "confirmado": false
+        }
+      ]
+    }
+  ]
+}
