@@ -1,0 +1,365 @@
+/* Reset padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #e9f1fa;
+  color: #333;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #4c9dd5, #2b88c7);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128c7e;
+  transform: scale(1.05);
+}
+
+/* GRID de PRODUTOS */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.produto {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.produto h2 {
+  font-size: 20px;
+  color: #2b88c7;
+  margin-bottom: 10px;
+}
+
+.produto p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.produto a {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #4c9dd5;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.produto a:hover {
+  background-color: #2b88c7;
+  transform: scale(1.05);
+}
+
+/* FORMULÁRIO */
+#formulario-emprestimo {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+#formulario-emprestimo h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background-color: #4c9dd5;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #2b88c7;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #2b88c7;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  .whatsapp-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header {
+    padding: 30px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  .whatsapp-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 20px;
+  }
+  #formulario-emprestimo {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 22px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  .whatsapp-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .produtos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produto {
+    width: 90%;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+.produto-cartao {
+  background-color: #f9f9f9; /* Cor de fundo */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center; /* Centraliza o texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.produto-cartao h2 {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center; /* Garante que o título também fique centralizado */
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .produto-cartao {
+    padding: 15px;
+  }
+
+  .produto-cartao h2 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .produto-cartao {
+    padding: 10px;
+  }
+
+  .produto-cartao h2 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .informacoes {
+    padding: 10px; /* Reduz o espaçamento */
+  }
+
+  .texto-destaque {
+    font-size: 16px; /* Reduz o tamanho do texto grande */
+    text-align: center; /* Centraliza */
+  }
+
+  .conteudo-direita {
+    width: auto; /* Ajusta a largura para ocupar toda a tela */
+  }
+}
+/* Estilo para a lateral esquerda com as caixinhas */
+.lateral-esquerda {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.lateral-esquerda h3 {
+  margin-top: 0;
+}
+
+.caixa {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.caixa:hover {
+  background-color: #0056b3;
+}
+
+#conteudo {
+  margin-left: 320px;
+  padding: 20px;
+}
+@media (max-width: 767px) {
+  .lateral-esquerda {
+    position: static; /* Remove a fixação lateral */
+    width: 100%; /* Ocupa a largura total */
+    height: auto; /* Ajusta automaticamente */
+    padding: 10px;
+    box-shadow: none; /* Remove a sombra para um visual mais limpo */
+  }
+
+  .caixa {
+    margin-bottom: 5px; /* Reduz o espaçamento entre as caixas */
+    padding: 10px; /* Ajusta o padding */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  #conteudo {
+    margin-left: 0; /* Remove o deslocamento */
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px; /* Reduz o tamanho do título */
+  }
+
+  p, label, select, input, button {
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+  }
+
+  button {
+    width: 100%; /* Faz os botões ocuparem a largura total */
+    padding: 10px;
+  }
+}

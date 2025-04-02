@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empréstimos Com Rapidez e Segurança</title>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+  <!-- Lateral esquerda -->
+  <div class="lateral-esquerda">
+    <h3>Informações</h3>
+    <div class="caixa">
+        <h4>Tabelas de Comissão</h4><br>
+
+        <h4>EMPRÉSTIMO NO CARTÃO</h4>
+        <label for="selecaoEmprestimo">Escolha a Tabela:</label>
+        <select id="selecaoEmprestimo">
+            <option value="" disabled selected>Selecione...</option>
+            <option value="14.5">Tabela A</option>
+            <option value="13.5">Tabela B</option>
+            <option value="12.5">Tabela C</option>
+            <option value="11.0">Tabela D</option>
+            <option value="10.0">Tabela E</option>
+            <option value="9.0">Tabela F</option>
+            <option value="8.0">Tabela G</option>
+            <option value="7.0">Tabela H</option>
+            <option value="6.5">Tabela I</option>
+            <option value="5.5">Tabela J</option>
+            <option value="4.5">Tabela K</option>
+            <option value="3.5">Tabela L</option>
+            <option value="2.5">Tabela M</option>
+            <option value="1.5">Tabela N</option>
+        </select>
+        <p id="resultadoEmprestimo"></p>
+
+        <h4>ANTECIPAÇÃO FGTS</h4>
+        <label for="selecaoFGTS">Escolha a Tabela:</label>
+        <select id="selecaoFGTS">
+            <option value="" disabled selected>Selecione...</option>
+            <option value="27.0">Tabela TOP</option>
+            <option value="6.0">Tabela Ouro</option>
+        </select>
+
+        <div id="contratoContainer" style="display: none;">
+            <label for="valorContrato">Valor do Contrato:</label>
+            <select id="valorContrato">
+                <option value="" disabled selected>Selecione...</option>
+                <option value="12">R$ 0,00 - R$ 99,99</option>
+                <option value="10">R$ 100,00 - R$ 399,99</option>
+                <option value="7">R$ 400,00 - R$ 4.999,99</option>
+                <option value="6">R$ 5.000,00 - R$ 9.999,99</option>
+                <option value="5">R$ 10.000,00 - R$ 19.999,99</option>
+                <option value="3.5">acima de R$ 20.000,00</option>
+            </select>
+        </div>
+
+        <p id="resultadoFGTS"></p>
+    </div>
+    <script>
+      // Função para formatar valores percentuais no padrão brasileiro
+      function formatarPercentual(valor) {
+          return new Intl.NumberFormat("pt-BR", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+          }).format(valor) + "%";
+      }
+  
+      // Função para formatar valores monetários (R$) no padrão brasileiro
+      function formatarMoeda(valor) {
+          return new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+          }).format(valor);
+      }
+  
+      function atualizarComissao(selectId, resultadoId) {
+          document.getElementById(selectId).addEventListener("change", function () {
+              let valor = this.value;
+              let texto = this.options[this.selectedIndex].text;
+              document.getElementById(resultadoId).innerText = `A comissão da ${texto} é ${formatarPercentual(valor)}`;
+          });
+      }
+  
+      atualizarComissao("selecaoEmprestimo", "resultadoEmprestimo");
+  
+      document.getElementById("selecaoFGTS").addEventListener("change", function () {
+          let valorSelecionado = this.value;
+          let textoSelecionado = this.options[this.selectedIndex].text;
+          let resultadoFGTS = document.getElementById("resultadoFGTS");
+          let contratoContainer = document.getElementById("contratoContainer");
+  
+          if (valorSelecionado === "27.0") {
+              contratoContainer.style.display = "block";
+              resultadoFGTS.innerText = ""; // Aguarda seleção do contrato
+          } else {
+              contratoContainer.style.display = "none";
+              resultadoFGTS.innerText = `A comissão da ${textoSelecionado} é ${formatarPercentual(valorSelecionado)}`;
+          }
+      });
+  
+      document.getElementById("valorContrato").addEventListener("change", function () {
+          let valorContrato = this.value;
+          let resultadoFGTS = document.getElementById("resultadoFGTS");
+          resultadoFGTS.innerText = `A comissão para o contrato selecionado é ${formatarMoeda(valorContrato)}`;
+      });
+  </script>
+    <div class="caixa">
+      <h4>SUPORTE</h4>
+      <br>
+      <p>Entre em contato conosco atraves do nosso whatsapp 61994088040.</p>
+    </div>
+    <div class="caixa">
+      <h4>Siga Nossas Redes Sociais</h4>
+      <p>Fique por dentro das novidades.</p>
+      <p>...</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo do site -->
+  <div id="conteudo">
+    <header>
+      <h1>Empréstimos Com Rapidez e Segurança</h1>
+      <p>Ofereça crédito para seus clientes e ganhe comissão por cada contrato fechado!</p>
+    </header>
+    <section class="produtos">
+      <div class="produto-cartao">
+        <h2>EMPRÉSTIMO NO CARTÃO DE CRÉDITO</h2>
+        <h2>De forma totalmente on-line, contrate seu empréstimo no cartão de crédito e parcele o valor em até 12 vezes</h2>
+      </div>
+    </section>
+    <section id="simulador">
+      <h2>Simule Seu Empréstimo No Cartão de Crédito</h2>
+      <label for="tabela">Escolha a tabela de taxas:</label>
+      <select id="tabela">
+          <option value="A">Tabela A</option>
+          <option value="B">Tabela B</option>
+          <option value="C">Tabela C</option>
+          <option value="D">Tabela D</option>
+          <option value="E">Tabela E</option>
+          <option value="F">Tabela F</option>
+          <option value="G">Tabela G</option>
+          <option value="H">Tabela H</option>
+          <option value="I">Tabela I</option>
+          <option value="J">Tabela J</option>
+          <option value="K">Tabela K</option>
+          <option value="L">Tabela L</option>
+          <option value="M">Tabela M</option>
+          <option value="N">Tabela N</option>
+      </select>
+      <label for="valor">Digite o valor desejado (R$):</label>
+      <input type="number" id="valor" placeholder="Ex: 2500">
+      <label for="parcelas">Escolha o número de parcelas:</label>
+      <select id="parcelas">
+          <option value="4">4x</option>
+          <option value="6">6x</option>
+          <option value="8">8x</option>
+          <option value="10">10x</option>
+          <option value="12">12x</option>
+      </select>
+      <button onclick="simular()">Simular</button>
+      <h3>Resultado:</h3>
+      <p id="resultado"></p>
+      
+      <!-- Campo de WhatsApp será exibido após a simulação -->
+      <div id="campo-whatsapp" style="display:none;">
+        <label for="whatsapp">Digite o DDD e número de telefone para envio do link de contratação:</label>
+        <input type="text" id="whatsapp" placeholder="Ex: 11 91234-5678">
+        <button id="Contratar-agora" onclick="enviarContratacao()">Enviar Proposta Para o Whatsapp</button>
+      </div>
+  </section>
+  <section class="produtos">
+    <div class="produto">
+      <h2>Antecipação do FGTS</h2>
+      <p>Antecipe até 10 parcelas do seu SAQUE ANIVERSÁRIO sem burocracia e receba via PIX através do nosso parceiro <strong>ICRED</strong> </p>
+      <a href="https://link.icred.app/tQirZNZ" target="_blank">Tabela TOP!</a>
+      <a href="https://link.icred.app/jJ0okqZ" target="_blank">Tabela OURO</a>
+    </div>
+    <div class="produto">
+      <h2>Parcelamento de Multas e Débitos Veiculares</h2>
+      <p>Parcele suas multas no cartão de crédito em até 12x através do nosso parceiro <strong>PAGPLAN</strong> .</p>
+      <a href="https://menortaxa.pagplan.com.br/wsdigital/" target="_blank">Contratar Agora</a>
+    </div>
+  </section>
+    <footer>
+    </footer>
+  </div>
+
+  <script>
+    // Tabelas de Taxas Baseadas em R$ 1.000,00
+    const tabelas = {
+        "A": { "4": 455.09, "6": 304.80, "8": 229.67, "10": 184.59, "12": 154.54 },
+        "B": { "4": 442.85, "6": 296.61, "8": 223.50, "10": 179.64, "12": 150.40 },
+        "C": { "4": 430.61, "6": 288.42, "8": 217.33, "10": 174.68, "12": 146.25 },
+        "D": { "4": 418.38, "6": 280.23, "8": 211.16, "10": 169.73, "12": 142.11 },
+        "E": { "4": 406.14, "6": 272.04, "8": 205.00, "10": 164.78, "12": 137.96 },
+        "F": { "4": 393.90, "6": 263.86, "8": 198.83, "10": 159.82, "12": 133.82 },
+        "G": { "4": 381.67, "6": 255.67, "8": 192.67, "10": 154.87, "12": 129.68 },
+        "H": { "4": 372.50, "6": 249.52, "8": 188.04, "10": 151.16, "12": 126.57 },
+        "I": { "4": 363.50, "6": 243.38, "8": 183.42, "10": 147.45, "12": 123.47 },
+        "J": { "4": 354.15, "6": 237.24, "8": 178.80, "10": 143.73, "12": 120.36 },
+        "K": { "4": 341.92, "6": 229.06, "8": 172.64, "10": 138.79, "12": 116.22 },
+        "L": { "4": 329.69, "6": 220.88, "8": 166.48, "10": 133.84, "12": 112.09 },
+        "M": { "4": 320.51, "6": 214.74, "8": 161.86, "10": 130.13, "12": 108.98 },
+        "N": { "4": 311.34, "6": 208.60, "8": 157.24, "10": 126.42, "12": 105.86 }
+    };
+
+    function simular() {
+        var tabelaSelecionada = document.getElementById("tabela").value;
+        var valorSolicitado = parseFloat(document.getElementById("valor").value);
+        var parcelasSelecionadas = document.getElementById("parcelas").value;
+        var valorFinal = tabelas[tabelaSelecionada][parcelasSelecionadas];
+
+        // Calcular valor final baseado na tabela e valor solicitado
+        var valorTotal = (valorSolicitado / 1000) * valorFinal;
+
+        // Calcular o limite necessário do cartão
+        var limiteNecessario = valorTotal * parcelasSelecionadas;
+
+        // Exibir a simulação formatada na tela
+        document.getElementById("resultado").innerHTML = 
+            `Valor total: <strong>R$ ${valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} (em ${parcelasSelecionadas} meses)</strong><br>` +
+            `Limite Necessário do Cartão: <strong>R$ ${limiteNecessario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>`;
+
+        // Exibir o campo de WhatsApp
+        document.getElementById("campo-whatsapp").style.display = "block";
+    }
+
+    function enviarContratacao() {
+        var telefone = document.getElementById("whatsapp").value;
+        var numeroCompleto = "55" + telefone.replace(/\D/g, ''); // Formatar número de telefone para o formato brasileiro
+
+        var tabelaSelecionada = document.getElementById("tabela").value;
+        var valorSolicitado = parseFloat(document.getElementById("valor").value);
+        var parcelasSelecionadas = document.getElementById("parcelas").value;
+        var valorFinal = tabelas[tabelaSelecionada][parcelasSelecionadas];
+
+        // Calcular o valor da parcela
+        var valorParcela = valorFinal / 1000 * valorSolicitado;
+
+        // Calcular o limite necessário do cartão
+        var limiteNecessario = valorParcela * parcelasSelecionadas;
+
+         // Criar o objeto com os links de autocontratação
+    const linksAutocontracao = {
+        "A": "https://emprestimo.ayude.com.br/a0b40421-c81d-4756-8adf-67a93f4a9d04",
+        "B": "https://emprestimo.ayude.com.br/52f60a91-cf7a-44ab-8305-a6c2c9c3b5b7",
+        "C": "https://emprestimo.ayude.com.br/ef2e0e7a-abee-42a7-9d4c-516f17f25448",
+        "D": "https://emprestimo.ayude.com.br/70e7fbe1-e550-43c7-a27b-e0556a46a1aa",
+        "E": "https://emprestimo.ayude.com.br/4e18d1c4-895e-43d6-b50e-2945b4dcd970",
+        "F": "https://emprestimo.ayude.com.br/1ac233ef-6a74-419d-b959-e1fec3152959",
+        "G": "https://emprestimo.ayude.com.br/0030a89b-c170-47f4-9852-8e3437e05594",
+        "H": "https://emprestimo.ayude.com.br/40e374a8-b685-4ac7-bc79-de4bc91517f4",
+        "I": "https://emprestimo.ayude.com.br/bf92b39a-aba4-4859-8dd3-7ef33419fac4",
+        "J": "https://emprestimo.ayude.com.br/91da67e8-3ad4-4a4d-9a76-81549c79c0bc",
+        "K": "https://emprestimo.ayude.com.br/05a3e9ed-38c6-447d-ab7f-382639de06a1",
+        "L": "https://emprestimo.ayude.com.br/086c8634-874c-49ec-a133-819a03d54d82",
+        "M": "https://emprestimo.ayude.com.br/f52866b5-8f18-44b1-9b22-377d06630faa",
+        "N": "https://emprestimo.ayude.com.br/0fef48dc-eace-44fd-ab13-8a5cbc01abab",
+    };
+
+    // Pegar o link da tabela selecionada
+    var linkAutocontracao = linksAutocontracao[tabelaSelecionada];
+
+        // Formatar a mensagem com o padrão solicitado
+        var mensagem = encodeURIComponent(
+            `Empréstimo solicitado: *Empréstimo no cartão*\n` +
+            `Tabela: ${tabelaSelecionada}\n` +
+            `Valor: *R$ ${valorSolicitado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*\n` +
+            `Parcelas: *${parcelasSelecionadas}x*\n` +
+            `Valor da parcela: *R$ ${valorParcela.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*\n` +
+            `Limite necessário do cartão: *R$ ${limiteNecessario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}*\n` +
+            `Abaixo o link de contratação: ${linkAutocontracao}`
+        );
+
+        var linkWhatsApp = `https://wa.me/${numeroCompleto}?text=${mensagem}`;
+        window.open(linkWhatsApp, '_blank');
+    }
+  </script>
+</body>
+</html>
