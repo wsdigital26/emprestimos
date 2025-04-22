@@ -103,7 +103,7 @@
       document.getElementById("valorContrato").addEventListener("change", function () {
           let valorContrato = this.value;
           let resultadoFGTS = document.getElementById("resultadoFGTS");
-          resultadoFGTS.innerText = `A comissão para o contrato selecionado é ${formatarMoeda(valorContrato)}`;
+          resultadoFGTS.innerText = `A comissão para o contrato selecionado é ${formatarPercentual(valorContrato)}`;
       });
   </script>
     <div class="caixa">
